@@ -1,25 +1,43 @@
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import TodoList from "./components/TodoList/TodoList";
+import TodoInput from "./components/TodoInput/TodoInput";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      list: [
+        {
+          text: 'dog walk'
+        }
+      ]
+    }
+  }
+
+  handleAddClick(text) {
+    this.setState({
+      list: [...this.state.list, {text}]
+    })
+  }
+  handleDeleteClick(id) {
+    let list = this.state.list;
+    list.splice(id, 1)
+    this.setState({
+      list
+    })
+  }
+
+  render() {
+    return (
+      <div style={{margin: '20px'}}>
+        <TodoInput onclick={text => this.handleAddClick(text)}/>
+        <TodoList list={this.state.list}
+                  onDelete={ id => this.handleDeleteClick(id)}
+        />
+      </div>
+    );
+  }
 }
 
 export default App;
