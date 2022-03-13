@@ -15,6 +15,8 @@ class App extends Component {
     }
   }
 
+  
+
   handleAddClick(text) {
     this.setState({
       list: [...this.state.list, {text}]
