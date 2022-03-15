@@ -1,45 +1,23 @@
-import React, {Component} from 'react';
+import React from 'react';
+import { Routes, Route, Link } from "react-router-dom";
+import StepCounter from './examples/usestate/StepCounter';
 import './App.css';
-import TodoList from "./components/TodoList/TodoList";
-import TodoInput from "./components/TodoInput/TodoInput";
+import Timer from './examples/useeffect/Timer';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      list: [
-        {
-          text: 'dog walk'
-        }
-      ]
-    }
-  }
-
-  
-
-  handleAddClick(text) {
-    this.setState({
-      list: [...this.state.list, {text}]
-    })
-  }
-  handleDeleteClick(id) {
-    let list = this.state.list;
-    list.splice(id, 1)
-    this.setState({
-      list
-    })
-  }
-
-  render() {
-    return (
-      <div style={{margin: '20px'}}>
-        <TodoInput onclick={text => this.handleAddClick(text)}/>
-        <TodoList list={this.state.list}
-                  onDelete={ id => this.handleDeleteClick(id)}
-        />
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className='App'>
+      <nav>
+        <Link to="/">Step Counter</Link>
+        <Link to="/">Timer</Link>
+      </nav>
+      <hr/>
+      <Routes>
+        <Route path="/" element={<StepCounter value={10} />} />
+        <Route path="/timer" element={<Timer initValue={10} />} />
+      </Routes>
+    </div>
+  )
 }
 
 export default App;
