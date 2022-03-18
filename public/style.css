@@ -1,4 +1,4 @@
-.button {
+/* .button {
     padding: 2px 10px;
     color: #eee;
     border-radius: 10px;
@@ -8,14 +8,16 @@
   .button.primary {
     background-color: red;
   }
-  
+   */
   .card {
     width: 200px;
-    height: 250px;
+    height: 350px;
     border: 3px solid red;
     margin: 10px;
   }
-  
+  .img {
+    background-image: url("imageUrl");
+  }
   .large {
     padding: 10px;
   }
@@ -37,7 +39,7 @@
     background-color: #444;
   }
   
-  .navbar a {
+  /* .navbar a {
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
     padding: 20px 10px;
@@ -47,4 +49,4 @@
   
   .navbar a:hover {
     text-decoration: underline;
-  }
+  } */
